@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sound Cloud Rater</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+  </head>
+  <body>
+    <header>
+      <div class="user">
+        <span>example@example.com</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#rate-section" id="rate-link">Rate</a></li>
+          <li><a href="#scores-section" id="scores-link">Scores</a></li>
+          <li><a href="#">Log out</a></li>
+          <li><a href="#admin-section" id="admin-link">Admin</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="rate-section" class="active-section">
+        <div class="rate">
+          <div>
+            <div>
+              <a href="#" id="first-picture"
+                ><img src="first.png" alt="first"
+              /></a>
+            </div>
+            <div class="play-pause">
+              <button id="play-pause-first" class="play-pause-button">
+                <i class="fas fa-circle-play fa-2xl"></i>
+              </button>
+            </div>
+          </div>
+          <div>
+            <div class="draw">
+              <a href="#" id="draw">DRAW</a>
+            </div>
+            <div class="empty">
+            </div>
+          </div>
+          <div>
+            <div>
+              <a href="#" id="second-picture"
+                ><img src="second.png" alt="second"
+              /></a>
+            </div>
+            <div class="play-pause">
+              <button id="play-pause-second" class="play-pause-button">
+                <i class="fas fa-circle-play fa-2xl"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="scores-section" class="inactive-section">
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Wyszukaj..." />
+          <button id="search-button"><i class="fa fa-search"></i></button>
+        </div>
+        <div class="scores">
+          <ol class="track-list">
+            <li>Nazwa pierwszego utworu</li>
+            <li>Nazwa drugiego utworu</li>
+            <li>Nazwa trzeciego utworu</li>
+            <li>Nazwa czwartego utworu</li>
+            <li>Nazwa piątego utworu</li>
+            <li>Nazwa pierwszego utworu</li>
+            <li>Nazwa drugiego utworu</li>
+            <li>Nazwa trzeciego utworu</li>
+            <li>Nazwa czwartego utworu</li>
+            <li>Nazwa piątego utworu</li>
+            <li>Nazwa pierwszego utworu</li>
+            <li>Nazwa drugiego utworu</li>
+            <li>Nazwa trzeciego utworu</li>
+            <li>Nazwa czwartego utworu</li>
+            <li>Nazwa piątego utworu</li>
+          </ol>
+        </div>
+      </section>
+      <section id="admin-section" class="inactive-section">
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Wyszukaj..." />
+          <button id="search-button"><i class="fa fa-search"></i></button>
+        </div>
+        <div class="admin">
+          <div class="descriptions">
+            <ul>
+              <li>Perform new rating</li>
+              <li>Update rating</li>
+              <li>Push to SoundCloud</li>
+              <li>Delete rating</li>
+            </ul>
+          </div>
+          <div class="buttons">
+            <ul>
+              <li>
+                <a href="#"><i class="fas fa-circle-play fa-xl button"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-circle-play fa-xl button"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-circle-play fa-xl button"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-circle-play fa-xl button"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

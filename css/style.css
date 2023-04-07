@@ -1,0 +1,225 @@
+body {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+main {
+  background-color: #555;
+  width: 700px;
+  height: 400px;
+}
+
+/* SECTIONS */
+
+ section#rate-section {
+  width: 100%;
+  height: 100%; 
+} 
+
+/* NAVIGATION PANEL */
+
+header {
+  height: 400px;
+  width: 200px;
+  margin-right: 2px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #555;
+}
+
+.user {
+  align-items: center;
+  color: #fff;
+  flex-grow: 1;
+  flex-basis: auto;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  color: #fff;
+  font-size: 2rem;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin-top: 40px;
+  margin-left: 10px;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+nav li {
+  margin-bottom: 10px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+nav li a:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* SEARCH BOX */
+
+#search-input {
+  margin-top: 10px;
+  margin-left: 20px;
+  align-items: center;
+  background-color: transparent;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  color: white;
+  outline: none;
+  border-color: #a5a5a5;
+}
+
+#search-input:hover {
+  transition: 0.25s;
+  background-color: #a5a5a5;
+}
+
+#search-button {
+  background-color: transparent;
+  border: none;
+  color: #868484;
+}
+
+#search-button:hover {
+  color: #fff;
+  transition: 0.25s;
+}
+
+/* RATE PANEL */
+
+.rate {
+  width: 100%;
+  height: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty {
+  width: 100px;
+  height: 30px;
+  padding: 20px;
+}
+
+.draw {
+  width: 100px;
+  height: 200px;
+  padding: 20px;
+  line-height: 200px;
+  text-align: center;
+}
+
+#draw {
+  color: white;
+  font-size: 2rem;
+  font-style: none;
+  text-decoration: none;
+}
+
+#draw:hover {
+  color: orange;
+  transition: 0.1s;
+}
+
+.rate img {
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+}
+
+.play-pause-button {
+  border: none;
+  background-color: transparent;
+  font-size: 24px;
+  color: orange;
+}
+
+.play-pause {
+  width: 200px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* SCORES PANEL */
+
+.scores {
+  width: 400px; 
+  height: 300px;
+  padding: 20px; 
+  font-size: 1.2rem;
+}
+
+.track-list {
+  overflow-y: auto;
+  max-height: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: #555;
+  color: white;
+}
+
+.track-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.track-list::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 6px;
+}
+
+/* Styling for active and inactive sections */
+.active-section {
+  display: block;
+}
+
+.inactive-section {
+  display: none;
+}
+
+/* ADMIN PANEL */
+
+.admin {
+  display: flex;
+  color: white;
+  padding: none;
+  font-size: 1.5rem;
+}
+
+.admin ul {
+  margin-top: 40px;
+  margin-left: 20px;
+  padding-inline-start: 0px;
+}
+
+.admin li {
+  list-style: none;
+  margin-bottom: 20px;
+}
+.button {
+  color: white;
+}
+
+.button:hover {
+  color: orange;
+}
