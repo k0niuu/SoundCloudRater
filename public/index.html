@@ -5,115 +5,169 @@
     <title>Sound Cloud Rater</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/loginpanel.css" />
   </head>
   <body>
-    <header>
-      <div class="user">
-        <span>example@example.com</span>
+    <section id="login">
+      <h2>Log in or Register</h2>
+      <div id="login-form">
+        <input type="email" placeholder="Email" id="email-input" required />
+        <input
+          type="password"
+          placeholder="Password"
+          id="password-input"
+          required
+        />
+        <div id="buttons">
+          <button id="login-btn">Log in</button>
+          <button id="register-btn">Register</button>
+          <button id="google-login-btn">Log in with Google</button>
+        </div>
       </div>
-      <nav>
-        <ul>
-          <li><a href="#rate-section" id="rate-link">Rate</a></li>
-          <li><a href="#scores-section" id="scores-link">Scores</a></li>
-          <li><a href="#">Log out</a></li>
-          <li><a href="#admin-section" id="admin-link">Admin</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section id="rate-section" class="active-section">
-        <div class="rate">
-          <div>
+      <div id="register-form" style="display: none">
+        <input
+          type="email"
+          placeholder="Email"
+          id="email-register-input"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          id="password-register-input"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          id="confirm-password-input"
+          required
+        />
+        <div id="buttons">
+          <button id="register-submit-btn">Register</button>
+          <button id="cancel-btn">Cancel</button>
+        </div>
+      </div>
+    </section>
+    <section id="main-application" style="display: none">
+      <header>
+        <div class="user">
+          <span>example@example.com</span>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#rate-section" id="rate-link">Rate</a></li>
+            <li><a href="#scores-section" id="scores-link">Scores</a></li>
+            <li><a href="#">Log out</a></li>
+            <li><a href="#admin-section" id="admin-link">Admin</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section id="rate-section" class="active-section">
+          <div class="rate">
             <div>
-              <a href="#" id="first-picture"
-                ><img src="first.png" alt="first"
-              /></a>
+              <div>
+                <a href="#" id="first-picture"
+                  ><img src="first.png" alt="first"
+                /></a>
+              </div>
+              <div class="play-pause">
+                <button id="play-pause-first" class="play-pause-button">
+                  <i class="fas fa-circle-play fa-2xl"></i>
+                </button>
+              </div>
             </div>
-            <div class="play-pause">
-              <button id="play-pause-first" class="play-pause-button">
-                <i class="fas fa-circle-play fa-2xl"></i>
-              </button>
-            </div>
-          </div>
-          <div>
-            <div class="draw">
-              <a href="#" id="draw">DRAW</a>
-            </div>
-            <div class="empty"></div>
-          </div>
-          <div>
             <div>
-              <a href="#" id="second-picture"
-                ><img src="second.png" alt="second"
-              /></a>
+              <div class="draw">
+                <a href="#" id="draw">DRAW</a>
+              </div>
+              <div class="empty"></div>
             </div>
-            <div class="play-pause">
-              <button id="play-pause-second" class="play-pause-button">
-                <i class="fas fa-circle-play fa-2xl"></i>
-              </button>
+            <div>
+              <div>
+                <a href="#" id="second-picture"
+                  ><img src="second.png" alt="second"
+                /></a>
+              </div>
+              <div class="play-pause">
+                <button id="play-pause-second" class="play-pause-button">
+                  <i class="fas fa-circle-play fa-2xl"></i>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      <section id="scores-section" class="inactive-section">
-        <div class="search-container">
-          <input type="text" id="search-input" placeholder="Wyszukaj..." />
-          <button id="search-button"><i class="fa fa-search"></i></button>
-        </div>
-        <div class="scores">
-          <ol class="track-list">
-            <li>Nazwa pierwszego utworu</li>
-            <li>Nazwa drugiego utworu</li>
-            <li>Nazwa trzeciego utworu</li>
-            <li>Nazwa czwartego utworu</li>
-            <li>Nazwa piątego utworu</li>
-            <li>Nazwa pierwszego utworu</li>
-            <li>Nazwa drugiego utworu</li>
-            <li>Nazwa trzeciego utworu</li>
-            <li>Nazwa czwartego utworu</li>
-            <li>Nazwa piątego utworu</li>
-            <li>Nazwa pierwszego utworu</li>
-            <li>Nazwa drugiego utworu</li>
-            <li>Nazwa trzeciego utworu</li>
-            <li>Nazwa czwartego utworu</li>
-            <li>Nazwa piątego utworu</li>
-          </ol>
-        </div>
-      </section>
-      <section id="admin-section" class="inactive-section">
-        <div class="search-container">
-          <input type="text" id="search-input" placeholder="Wyszukaj..." />
-          <button id="search-button"><i class="fa fa-search"></i></button>
-        </div>
-        <div class="admin">
-          <div class="descriptions">
-            <ul>
-              <li>Perform new rating</li>
-              <li>Update rating</li>
-              <li>Push to SoundCloud</li>
-              <li>Delete rating</li>
-            </ul>
+        </section>
+        <section id="scores-section" class="inactive-section">
+          <div class="search-container">
+            <input type="text" id="search-input" placeholder="Wyszukaj..." />
+            <button id="search-button"><i class="fa fa-search"></i></button>
           </div>
-          <div class="buttons">
-            <ul>
-              <li>
-                <a href="#"><i class="fas fa-circle-play fa-xl button"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fas fa-circle-play fa-xl button"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fas fa-circle-play fa-xl button"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fas fa-circle-play fa-xl button"></i></a>
-              </li>
-            </ul>
+          <div class="scores">
+            <ol class="track-list">
+              <li>Nazwa pierwszego utworu</li>
+              <li>Nazwa drugiego utworu</li>
+              <li>Nazwa trzeciego utworu</li>
+              <li>Nazwa czwartego utworu</li>
+              <li>Nazwa piątego utworu</li>
+              <li>Nazwa pierwszego utworu</li>
+              <li>Nazwa drugiego utworu</li>
+              <li>Nazwa trzeciego utworu</li>
+              <li>Nazwa czwartego utworu</li>
+              <li>Nazwa piątego utworu</li>
+              <li>Nazwa pierwszego utworu</li>
+              <li>Nazwa drugiego utworu</li>
+              <li>Nazwa trzeciego utworu</li>
+              <li>Nazwa czwartego utworu</li>
+              <li>Nazwa piątego utworu</li>
+            </ol>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+        <section id="admin-section" class="inactive-section">
+          <div class="search-container">
+            <input type="text" id="search-input" placeholder="Wyszukaj..." />
+            <button id="search-button"><i class="fa fa-search"></i></button>
+          </div>
+          <div class="admin">
+            <div class="descriptions">
+              <ul>
+                <li>Perform new rating</li>
+                <li>Update rating</li>
+                <li>Push to SoundCloud</li>
+                <li>Delete rating</li>
+              </ul>
+            </div>
+            <div class="buttons">
+              <ul>
+                <li>
+                  <a href="#"
+                    ><i class="fas fa-circle-play fa-xl button"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fas fa-circle-play fa-xl button"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fas fa-circle-play fa-xl button"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fas fa-circle-play fa-xl button"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+    </section>
     <script type="module" src="firebasesetup.js"></script>
+    <script type="module" src="google-login.js"></script>
+    <script src="login.js"></script>
     <script src="script.js"></script>
     <script src="SCscripts.js"></script>
   </body>
