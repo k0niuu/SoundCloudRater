@@ -39,20 +39,6 @@ adminLink.addEventListener("click", (event) => {
   setActiveSection(adminSection, rateSection, scoresSection); // pokazujemy sekcję "Admin" i ukrywamy sekcje "Rate" i "Scores"
 });
 
-//OBSŁUGA WYSZUKIWARKI
-
-const searchInput = document.querySelector("#search-input"); // pobieramy pole wyszukiwania
-const searchButton = document.querySelector("#search-button"); // pobieramy przycisk "wyszukaj"
-
-// funkcja, która obsługuje kliknięcie przycisku "wyszukaj"
-function handleSearch() {
-  const searchTerm = searchInput.value; // pobieramy wartość wprowadzoną przez użytkownika do pola wyszukiwania
-  // TODO: dodać kod, który wykona wyszukiwanie i wyświetli wyniki
-}
-
-// nasłuchiwanie kliknięcia na przycisk "wyszukaj"
-searchButton.addEventListener("click", handleSearch);
-
 const buttons = document.querySelectorAll(".play-pause-button");
 
 buttons.forEach((button) => {
