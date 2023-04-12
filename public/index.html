@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="css/loginpanel.css" />
   </head>
   <body>
-    <section id="login">
+    <section id="login" class="active-section">
       <h2>Log in or Register</h2>
-      <div id="login-form">
+      <section id="login-form">
         <input type="email" placeholder="Email" id="email-input" required />
         <input
           type="password"
@@ -23,8 +23,8 @@
           <button id="register-btn">Register</button>
           <button id="google-login-btn">Log in with Google</button>
         </div>
-      </div>
-      <div id="register-form" style="display: none">
+      </section>
+      <section id="register-form" class="inactive-section">
         <input
           type="email"
           placeholder="Email"
@@ -47,18 +47,22 @@
           <button id="register-submit-btn">Register</button>
           <button id="cancel-btn">Cancel</button>
         </div>
-      </div>
+      </section>
     </section>
-    <section id="main-application" style="display: none">
+    <section
+      id="main-application"
+      class="inactive-section"
+      style="display: none"
+    >
       <header>
         <div class="user">
-          <span>example@example.com</span>
+          <span id="user-email">example@example.com</span>
         </div>
         <nav>
           <ul>
             <li><a href="#rate-section" id="rate-link">Rate</a></li>
             <li><a href="#scores-section" id="scores-link">Scores</a></li>
-            <li><a href="#">Log out</a></li>
+            <li><a href="#" id="logout-btn">Log out</a></li>
             <li><a href="#admin-section" id="admin-link">Admin</a></li>
           </ul>
         </nav>
@@ -166,8 +170,8 @@
       </main>
     </section>
     <script type="module" src="firebasesetup.js"></script>
-    <script type="module" src="google-login.js"></script>
-    <script src="login.js"></script>
+    <!-- <script type="module" src="google-login.js"></script> -->
+    <script type="module" src="login.js"></script>
     <script src="script.js"></script>
     <script src="SCscripts.js"></script>
   </body>

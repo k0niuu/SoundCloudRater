@@ -1,8 +1,9 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebasesetup.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
 import {
   getAuth,
   signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut,
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
 
 // Konfiguracja Firebase
@@ -18,10 +19,19 @@ const firebaseConfig = {
 
 // Inicjalizacja Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const auth = getAuth();
 
-// Eksportowanie funkcji logowania
+// Eksportowanie funkcji logowania, rejestrowania i wylogowania
 export function login(email, password) {
   return signInWithEmailAndPassword(auth, email, password);
 }
+
+export function register(email, password) {
+  return createUserWithEmailAndPassword(auth, email, password);
+}
+
+export function logout() {
+  return signOut(auth);
+}
+// Eksportowanie obiektu GoogleAuthProvider oraz funkcji auth, które są potrzebne do autoryzacji użytkowników w Firebase.
+// export { GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+export const auth = getAuth();

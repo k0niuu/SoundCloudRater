@@ -1,14 +1,9 @@
-import firebase from "./firebasesetup.js";
-import "firebase/compat/auth";
-import "firebase/compat/firestore";
+import { auth, GoogleAuthProvider } from "./firebasesetup.js";
 
-firebase.initializeApp(firebaseConfig);
-
-// funkcja obsługująca logowanie przez Google
 function googleLogin() {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  firebase
-    .auth()
+  const provider = new GoogleAuthProvider();
+  // console.log(auth);
+  auth
     .signInWithPopup(provider)
     .then((result) => {
       const user = result.user;

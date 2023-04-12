@@ -1,6 +1,8 @@
+import { login, logout, register } from "./firebasesetup.js";
+
 const loginSection = document.querySelector("#login");
-const loginForm = document.querySelector("#login-form");
-const registerForm = document.querySelector("#register-form");
+const loginFormSection = document.querySelector("#login-form");
+const registerFormSection = document.querySelector("#register-form");
 const mainApplicationSection = document.querySelector("#main-application");
 
 const emailInput = document.querySelector("#email-input");
@@ -15,44 +17,57 @@ const loginBtn = document.querySelector("#login-btn");
 const registerBtn = document.querySelector("#register-btn");
 const registerSubmitBtn = document.querySelector("#register-submit-btn");
 const cancelBtn = document.querySelector("#cancel-btn");
+const logoutBtn = document.querySelector("#logout-btn");
+const userEmail = document.querySelector(".user span");
 
+// funkcja, która zmienia styl sekcji
+function setActiveSection(sectionToShow, sectionToHide) {
+  sectionToShow.classList.add("active-section");
+  sectionToShow.classList.remove("inactive-section");
+  sectionToHide.classList.add("inactive-section");
+  sectionToHide.classList.remove("active-section");
+}
 // Hide the main application section by default
 mainApplicationSection.style.display = "none";
 
 // Show the register form and hide the login form
 registerBtn.addEventListener("click", () => {
-  loginForm.style.display = "none";
-  registerForm.style.display = "block";
+  setActiveSection(registerFormSection, loginFormSection);
 });
 
 // Show the login form and hide the register form
 cancelBtn.addEventListener("click", () => {
-  loginForm.style.display = "block";
-  registerForm.style.display = "none";
+  setActiveSection(loginFormSection, registerFormSection);
 });
 
-// Login form submission event listener
-loginForm.addEventListener("submit", (e) => {
+// Login by "Log in" button
+loginBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
   const email = emailInput.value;
   const password = passwordInput.value;
 
-  firebase
-    .auth()
-    .signInWithEmailAndPassword(email, password)
+  login(email, password)
     .then(() => {
-      console.log("Successfully logged in");
-      loginSection.style.display = "none";
-      mainApplicationSection.style.display = "block";
+      userEmail.textContent = email;
+      console.log(`Successfully logged in as: ${userEmail.textContent}`);
+      mainApplicationSection.style.display = "";
+      setActiveSection(mainApplicationSection, loginSection);
     })
     .catch((error) => {
       console.error("Error logging in:", error);
     });
 });
 
-// Register form submission event listener
-registerForm.addEventListener("submit", (e) => {
+//Login by enter
+// document.addEventListener("keyup", (event) => {
+//   if (event.key === "Enter") {
+//     loginBtn.click(); // wywołanie funkcji login po naciśnięciu Enter
+//   }
+// });
+
+//Register by "Register" button
+registerSubmitBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
   const email = registerEmailInput.value;
@@ -64,32 +79,30 @@ registerForm.addEventListener("submit", (e) => {
     return;
   }
 
-  firebase
-    .auth()
-    .createUserWithEmailAndPassword(email, password)
+  register(email, password)
     .then(() => {
-      console.log("Successfully registered and logged in");
-      loginSection.style.display = "none";
-      mainApplicationSection.style.display = "block";
+      userEmail.textContent = email;
+      console.log(
+        `Successfully registered and logged in as: ${userEmail.textContent}`
+      );
+      setActiveSection(mainApplicationSection, loginSection);
     })
     .catch((error) => {
-      console.error("Error registering:", error);
+      console.error("Error logging in:", error);
     });
 });
 
 // Logout event listener
-// logoutBtn.addEventListener("click", (e) => {
-//   e.preventDefault();
+logoutBtn.addEventListener("click", (e) => {
+  e.preventDefault();
 
-//   firebase
-//     .auth()
-//     .signOut()
-//     .then(() => {
-//       console.log("Successfully logged out");
-//       mainApplicationSection.style.display = "none";
-//       loginSection.style.display = "block";
-//     })
-//     .catch((error) => {
-//       console.error("Error logging out:", error);
-//     });
-// });
+  logout()
+    .then(() => {
+      console.log("Successfully logged out");
+      mainApplicationSection.style.display = "none";
+      setActiveSection(loginSection, mainApplicationSection);
+    })
+    .catch((error) => {
+      console.error("Error logging out:", error);
+    });
+});
