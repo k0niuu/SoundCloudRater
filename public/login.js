@@ -26,6 +26,8 @@ function setActiveSection(sectionToShow, sectionToHide) {
   sectionToShow.classList.remove("inactive-section");
   sectionToHide.classList.add("inactive-section");
   sectionToHide.classList.remove("active-section");
+  document.getElementById("login-error-information").textContent = "";
+  document.getElementById("register-error-information").textContent = "";
 }
 // Hide the main application section by default
 mainApplicationSection.style.display = "none";
@@ -56,6 +58,8 @@ loginBtn.addEventListener("click", (e) => {
     })
     .catch((error) => {
       console.error("Error logging in:", error);
+      document.getElementById("login-error-information").textContent =
+        "Invalid email or password!";
     });
 });
 
@@ -75,7 +79,9 @@ registerSubmitBtn.addEventListener("click", (e) => {
   const confirmPassword = confirmPasswordInput.value;
 
   if (password !== confirmPassword) {
-    console.error("Passwords do not match");
+    console.error("Passwords do not match!");
+    document.getElementById("register-error-information").textContent =
+      "Passwords do not match!";
     return;
   }
 
@@ -89,6 +95,8 @@ registerSubmitBtn.addEventListener("click", (e) => {
     })
     .catch((error) => {
       console.error("Error logging in:", error);
+      document.getElementById("register-error-information").textContent =
+        "User registration error!";
     });
 });
 
@@ -101,6 +109,8 @@ logoutBtn.addEventListener("click", (e) => {
       console.log("Successfully logged out");
       mainApplicationSection.style.display = "none";
       setActiveSection(loginSection, mainApplicationSection);
+      document.getElementById("email-input").value = "";
+      document.getElementById("password-input").value = "";
     })
     .catch((error) => {
       console.error("Error logging out:", error);

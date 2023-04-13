@@ -21,7 +21,9 @@
         <div id="buttons">
           <button id="login-btn">Log in</button>
           <button id="register-btn">Register</button>
-          <button id="google-login-btn">Log in with Google</button>
+          <br />
+          <span id="login-error-information"></span>
+          <!-- <button id="google-login-btn">Log in with Google</button> -->
         </div>
       </section>
       <section id="register-form" class="inactive-section">
@@ -46,6 +48,8 @@
         <div id="buttons">
           <button id="register-submit-btn">Register</button>
           <button id="cancel-btn">Cancel</button>
+          <br />
+          <span id="register-error-information"></span>
         </div>
       </section>
     </section>
@@ -172,6 +176,7 @@
     <script type="module" src="firebasesetup.js"></script>
     <!-- <script type="module" src="google-login.js"></script> -->
     <script type="module" src="login.js"></script>
+    <script src="pagereload.js"></script>
     <script src="script.js"></script>
     <script src="SCscripts.js"></script>
   </body>
