@@ -5,6 +5,15 @@ import {
   createUserWithEmailAndPassword,
   signOut,
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+import {
+  getFirestore,
+  collection,
+  onSnapshot,
+  getDoc,
+  addDoc,
+  setDoc,
+  doc,
+} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
 
 // Konfiguracja Firebase
 const firebaseConfig = {
@@ -18,7 +27,7 @@ const firebaseConfig = {
 };
 
 // Inicjalizacja Firebase
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 // Eksportowanie funkcji logowania, rejestrowania i wylogowania
 export function login(email, password) {
@@ -32,6 +41,8 @@ export function register(email, password) {
 export function logout() {
   return signOut(auth);
 }
-// Eksportowanie obiektu GoogleAuthProvider oraz funkcji auth, które są potrzebne do autoryzacji użytkowników w Firebase.
-// export { GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+
 export const auth = getAuth();
+export const db = getFirestore();
+export const colUsersRef = collection(db, "users");
+export { doc, setDoc, getDoc };

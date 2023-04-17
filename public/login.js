@@ -1,9 +1,20 @@
-import { login, logout, register } from "./firebasesetup.js";
+import {
+  colUsersRef,
+  login,
+  logout,
+  register,
+  doc,
+  setDoc,
+  getDoc,
+  db,
+} from "./firebasesetup.js";
 
 const loginSection = document.querySelector("#login");
 const loginFormSection = document.querySelector("#login-form");
 const registerFormSection = document.querySelector("#register-form");
 const mainApplicationSection = document.querySelector("#main-application");
+const adminSection = document.querySelector("#admin-section");
+const adminButton = document.querySelector("#admin-link");
 
 const emailInput = document.querySelector("#email-input");
 const passwordInput = document.querySelector("#password-input");
@@ -28,6 +39,11 @@ function setActiveSection(sectionToShow, sectionToHide) {
   sectionToHide.classList.remove("active-section");
   document.getElementById("login-error-information").textContent = "";
   document.getElementById("register-error-information").textContent = "";
+  document.getElementById("email-input").value = "";
+  document.getElementById("password-input").value = "";
+  document.getElementById("email-register-input").value = "";
+  document.getElementById("password-register-input").value = "";
+  document.getElementById("confirm-password-input").value = "";
 }
 // Hide the main application section by default
 mainApplicationSection.style.display = "none";
@@ -43,18 +59,23 @@ cancelBtn.addEventListener("click", () => {
 });
 
 // Login by "Log in" button
-loginBtn.addEventListener("click", (e) => {
+loginBtn.addEventListener("click", async (e) => {
   e.preventDefault();
 
   const email = emailInput.value;
   const password = passwordInput.value;
 
   login(email, password)
-    .then(() => {
+    .then((cred) => {
       userEmail.textContent = email;
-      console.log(`Successfully logged in as: ${userEmail.textContent}`);
+      console.log(
+        `Successfully logged in as: ${userEmail.textContent}`,
+        cred.user
+      );
+      console.log(cred.user.uid);
       mainApplicationSection.style.display = "";
       setActiveSection(mainApplicationSection, loginSection);
+      CheckIfAdmin(cred.user.uid);
     })
     .catch((error) => {
       console.error("Error logging in:", error);
@@ -63,15 +84,8 @@ loginBtn.addEventListener("click", (e) => {
     });
 });
 
-//Login by enter
-// document.addEventListener("keyup", (event) => {
-//   if (event.key === "Enter") {
-//     loginBtn.click(); // wywołanie funkcji login po naciśnięciu Enter
-//   }
-// });
-
 //Register by "Register" button
-registerSubmitBtn.addEventListener("click", (e) => {
+registerSubmitBtn.addEventListener("click", async (e) => {
   e.preventDefault();
 
   const email = registerEmailInput.value;
@@ -86,12 +100,16 @@ registerSubmitBtn.addEventListener("click", (e) => {
   }
 
   register(email, password)
-    .then(() => {
+    .then((cred) => {
       userEmail.textContent = email;
       console.log(
-        `Successfully registered and logged in as: ${userEmail.textContent}`
+        `Successfully registered and logged in as: ${userEmail.textContent}`,
+        cred.user
       );
+      console.log(cred.user.uid);
+      mainApplicationSection.style.display = "";
       setActiveSection(mainApplicationSection, loginSection);
+      addUserToDatabase(cred.user.uid, email); // dodanie użytkownika do bazy danych
     })
     .catch((error) => {
       console.error("Error logging in:", error);
@@ -111,8 +129,45 @@ logoutBtn.addEventListener("click", (e) => {
       setActiveSection(loginSection, mainApplicationSection);
       document.getElementById("email-input").value = "";
       document.getElementById("password-input").value = "";
+      document.getElementById("email-register-input").value = "";
+      document.getElementById("password-register-input").value = "";
+      document.getElementById("confirm-password-input").value = "";
     })
     .catch((error) => {
       console.error("Error logging out:", error);
     });
 });
+
+function addUserToDatabase(uid, email) {
+  const userRef = doc(colUsersRef, uid);
+  const userData = {
+    email: email,
+    userType: "regular",
+  };
+
+  setDoc(userRef, userData)
+    .then(() => {
+      console.log("User added to database");
+    })
+    .catch((error) => {
+      console.error("Error adding user to database:", error);
+    });
+}
+
+async function CheckIfAdmin(uid) {
+  const userDoc = doc(db, "users", uid);
+  const userSnap = await getDoc(userDoc);
+  const { userType } = userSnap.data();
+
+  if (userSnap.exists() && userType === "admin") {
+    adminSection.style.display = "";
+    adminButton.style.display = "";
+    console.log("Logged as an administrator");
+    console.log(userType);
+  } else {
+    adminSection.style.display = "none";
+    adminButton.style.display = "none";
+    console.log("Logged as a regular user");
+    console.log(userType);
+  }
+}
