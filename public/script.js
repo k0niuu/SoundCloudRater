@@ -1,21 +1,21 @@
 //OBSŁUGA PANELU NAWIGACYJNEGO
 
-const rateLink = document.querySelector("#rate-link"); // pobieramy link "Rate"
-const scoresLink = document.querySelector("#scores-link"); // pobieramy link "Scores"
-const adminLink = document.querySelector("#admin-link"); // pobieramy link "Admin"
+const rateLink = document.querySelector("#rate-link");
+const scoresLink = document.querySelector("#scores-link");
+const adminLink = document.querySelector("#admin-link");
 
-const rateSection = document.querySelector("#rate-section"); // pobieramy sekcję "Rate"
-const scoresSection = document.querySelector("#scores-section"); // pobieramy sekcję "Scores"
-const adminSection = document.querySelector("#admin-section"); // pobieramy sekcję "Admin"
+const rateSection = document.querySelector("#rate-section");
+const scoresSection = document.querySelector("#scores-section");
+const adminSection = document.querySelector("#admin-section");
 
 // funkcja, która zmienia styl sekcji
 function setActiveSection(sectionToShow, sectionToHide1, sectionToHide2) {
-  sectionToShow.classList.add("active-section"); // dodajemy klasę "active-section" do sekcji, którą chcemy pokazać
-  sectionToShow.classList.remove("inactive-section"); // usuwamy klasę "inactive-section" z tej samej sekcji
-  sectionToHide1.classList.add("inactive-section"); // dodajemy klasę "inactive-section" do pierwszej sekcji, którą chcemy ukryć
-  sectionToHide1.classList.remove("active-section"); // usuwamy klasę "active-section" z pierwszej sekcji
-  sectionToHide2.classList.add("inactive-section"); // dodajemy klasę "inactive-section" do drugiej sekcji, którą chcemy ukryć
-  sectionToHide2.classList.remove("active-section"); // usuwamy klasę "active-section" z drugiej sekcji
+  sectionToShow.classList.add("active-section");
+  sectionToShow.classList.remove("inactive-section");
+  sectionToHide1.classList.add("inactive-section");
+  sectionToHide1.classList.remove("active-section");
+  sectionToHide2.classList.add("inactive-section");
+  sectionToHide2.classList.remove("active-section");
 }
 
 // nasłuchiwanie kliknięcia na link "Rate"

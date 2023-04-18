@@ -1,0 +1,14 @@
+.soundcloud-player {
+  position: relative;
+  height: 240px;
+  width: 240px;
+  overflow: hidden;
+}
+
+.soundcloud-player iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
