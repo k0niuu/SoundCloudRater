@@ -19,11 +19,6 @@ main {
 
 /* SECTIONS */
 
-section#rate-section {
-  width: 100%;
-  height: 100%;
-}
-
 section#main-application {
   display: flex;
 }
@@ -41,13 +36,16 @@ header {
 }
 
 .user {
+  height: 40px;
   align-items: center;
   color: #fff;
   flex-grow: 1;
   flex-basis: auto;
   flex-wrap: wrap;
-  margin-top: 10px;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 0.8rem;
 }
 
 nav {
@@ -120,57 +118,83 @@ nav li a:hover {
 
 .rate {
   width: 100%;
-  height: 100%;
+  height: 360px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .empty {
-  width: 100px;
-  height: 30px;
-  padding: 20px;
+  width: 140px;
+  height: 360px;
 }
 
 .draw {
-  width: 100px;
-  height: 200px;
-  padding: 20px;
-  line-height: 200px;
+  width: 100%;
+  height: 80px;
   text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
 
 #draw {
+  width: 80px;
+  height: 32px;
   color: white;
-  font-size: 2rem;
-  font-style: none;
-  text-decoration: none;
+  background-color: rgba(204, 68, 0, 0.8);
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }
 
 #draw:hover {
-  color: orange;
-  transition: 0.1s;
+  box-shadow: 0px 0px 15px white;
 }
 
-.rate img {
-  width: 200px;
-  height: 200px;
-  padding: 20px;
+.description {
+  height: 40px;
+  width: 700px;
+  display: block;
+  border-bottom: 2px solid #a5a5a5;
 }
 
-.play-pause-button {
-  border: none;
-  background-color: transparent;
-  font-size: 24px;
-  color: orange;
-}
-
-.play-pause {
-  width: 200px;
-  padding: 20px;
-  display: flex;
+#rate-description {
+  color: white;
+  text-align: center;
   justify-content: center;
+  display: block;
+  font-size: 1.2rem;
+  padding: 9px;
+}
+
+.choose-buttons {
+  height: 80px;
+  justify-content: center;
+  display: flex;
   align-items: center;
+}
+
+#choose-first,
+#choose-second {
+  border: none;
+  width: 190px;
+  height: 32px;
+  color: white;
+  background-color: rgba(204, 68, 0, 0.8);
+  border-radius: 5px;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+#choose-first:hover,
+#choose-second:hover {
+  box-shadow: 0px 0px 15px white;
 }
 
 /* SCORES PANEL */
@@ -227,10 +251,76 @@ nav li a:hover {
   list-style: none;
   margin-bottom: 20px;
 }
-.button {
+
+.buttons {
+  width: 250px;
+  height: 360px;
+  align-items: center;
+}
+
+.descriptions {
+  width: 450px;
+  height: 360px;
+}
+
+#admin-description {
   color: white;
+  display: block;
+  font-size: 1.2rem;
+  padding: 9px;
+}
+
+#artist-input {
+  width: 450px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  border: none;
+  width: 200px;
+  height: 40px;
+  color: white;
+  background-color: rgba(204, 68, 0, 0.8);
+  border-radius: 5px;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-top: 40px;
+  margin-left: 30px;
 }
 
 .button:hover {
-  color: orange;
+  box-shadow: 0px 0px 15px white;
+}
+
+#artist-name {
+  width: 150px;
+  height: 30px;
+  margin-top: 35px;
+  padding: 0;
+  border: none;
+  border-bottom: 2px solid #a5a5a5;
+  color: white;
+  background-color: transparent;
+}
+
+#artist-name:focus {
+  outline: none;
+  caret-color: white;
+}
+
+#perform-rating-info {
+  font-size: 1rem;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+#perform-rating-info span {
+  line-height: 1.5;
 }

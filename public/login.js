@@ -9,6 +9,8 @@ import {
   db,
 } from "./firebasesetup.js";
 
+import { pausePlayers } from "./scplayerfunctionality.js";
+
 const loginSection = document.querySelector("#login");
 const loginFormSection = document.querySelector("#login-form");
 const registerFormSection = document.querySelector("#register-form");
@@ -124,6 +126,7 @@ logoutBtn.addEventListener("click", (e) => {
 
   logout()
     .then(() => {
+      pausePlayers();
       console.log("Successfully logged out");
       mainApplicationSection.style.display = "none";
       setActiveSection(loginSection, mainApplicationSection);
