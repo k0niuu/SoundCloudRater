@@ -1,0 +1,326 @@
+html {
+	background-color: #a5a5a5;
+}
+
+body {
+	display: flex;
+	flex-direction: row;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* SECTIONS */
+
+section#main-application {
+	display: flex;
+}
+
+/* NAVIGATION PANEL */
+
+header {
+	height: 400px;
+	width: 200px;
+	margin-right: 2px;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #555;
+}
+
+.user {
+	height: 40px;
+	align-items: center;
+	color: #fff;
+	flex-grow: 1;
+	flex-basis: auto;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	font-size: 0.8rem;
+}
+
+nav {
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+	color: #fff;
+	font-size: 2rem;
+}
+
+#nav {
+	margin-top: 20px;
+}
+
+nav a {
+	color: #fff;
+	text-decoration: none;
+	border-radius: 5px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+nav li a:hover {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+/* SEARCH BOX */
+
+#search-input {
+	margin-top: 10px;
+	margin-left: 20px;
+	align-items: center;
+	background-color: transparent;
+	border-left: none;
+	border-top: none;
+	border-right: none;
+	color: white;
+	outline: none;
+	border-color: #a5a5a5;
+}
+
+#search-input:hover {
+	transition: 0.25s;
+	background-color: #a5a5a5;
+}
+
+#search-button {
+	background-color: transparent;
+	border: none;
+	color: #868484;
+}
+
+#search-button:hover {
+	color: #fff;
+	transition: 0.25s;
+}
+
+/* RATE PANEL */
+#rate-section {
+	background-color: #555;
+	width: 700px;
+	height: 400px;
+}
+
+.rate {
+	width: 100%;
+	height: 360px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.empty {
+	width: 140px;
+	height: 360px;
+}
+
+.draw {
+	width: 100%;
+	height: 80px;
+	text-align: center;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+}
+
+#draw {
+	width: 80px;
+	height: 32px;
+	color: white;
+	background-color: rgba(204, 68, 0, 0.8);
+	font-size: 1.2rem;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+}
+
+#draw:hover {
+	box-shadow: 0px 0px 15px white;
+}
+
+.description {
+	height: 40px;
+	width: 700px;
+	display: block;
+	border-bottom: 2px solid #a5a5a5;
+}
+
+#rate-description {
+	color: white;
+	text-align: center;
+	justify-content: center;
+	display: block;
+	font-size: 1.2rem;
+	padding: 9px;
+}
+
+.choose-buttons {
+	height: 80px;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+}
+
+#choose-first,
+#choose-second {
+	border: none;
+	width: 190px;
+	height: 32px;
+	color: white;
+	background-color: rgba(204, 68, 0, 0.8);
+	border-radius: 5px;
+	justify-content: center;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	font-size: 1.2rem;
+	cursor: pointer;
+}
+
+#choose-first:hover,
+#choose-second:hover {
+	box-shadow: 0px 0px 15px white;
+}
+
+/* SCORES PANEL */
+#scores-section {
+	background-color: #555;
+	width: 700px;
+	height: 400px;
+}
+
+.scores {
+	width: 400px;
+	height: 300px;
+	padding: 20px;
+	font-size: 1.2rem;
+}
+
+.track-list {
+	overflow-y: auto;
+	max-height: 100%;
+	scrollbar-width: thin;
+	scrollbar-color: #555;
+	color: white;
+}
+
+.track-list::-webkit-scrollbar {
+	width: 10px;
+}
+
+.track-list::-webkit-scrollbar-thumb {
+	background-color: #ccc;
+	border-radius: 6px;
+}
+
+/* Styling for active and inactive sections */
+.active-section {
+	display: block;
+}
+
+.inactive-section {
+	display: none;
+}
+
+/* ADMIN PANEL */
+
+#admin-section {
+	background-color: #555;
+	width: 700px;
+	height: 400px;
+}
+
+.admin {
+	display: flex;
+	color: white;
+	padding: none;
+	font-size: 1.5rem;
+}
+
+.admin ul {
+	margin-top: 40px;
+	margin-left: 20px;
+	padding-inline-start: 0px;
+}
+
+.admin li {
+	list-style: none;
+	margin-bottom: 20px;
+}
+
+.buttons {
+	width: 250px;
+	height: 360px;
+	align-items: center;
+}
+
+.descriptions {
+	width: 450px;
+	height: 360px;
+}
+
+#admin-description {
+	color: white;
+	display: block;
+	font-size: 1.2rem;
+	padding: 9px;
+}
+
+#artist-input {
+	width: 450px;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.button {
+	border: none;
+	width: 200px;
+	height: 40px;
+	color: white;
+	background-color: rgba(204, 68, 0, 0.8);
+	border-radius: 5px;
+	justify-content: center;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	font-size: 1.2rem;
+	cursor: pointer;
+	margin-top: 40px;
+	margin-left: 30px;
+}
+
+.button:hover {
+	box-shadow: 0px 0px 15px white;
+}
+
+#artist-name {
+	width: 150px;
+	height: 30px;
+	margin-top: 35px;
+	padding: 0;
+	border: none;
+	border-bottom: 2px solid #a5a5a5;
+	color: white;
+	background-color: transparent;
+}
+
+#artist-name:focus {
+	outline: none;
+	caret-color: white;
+}
+
+#perform-rating-info {
+	font-size: 1rem;
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+#perform-rating-info span {
+	line-height: 1.5;
+}

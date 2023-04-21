@@ -1,0 +1,183 @@
++<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sound Cloud Rater</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/loginpanel.css">
+    <link rel="stylesheet" href="css/SCstyles.css">
+    <link rel="shortsut icon" href="data:.">
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+  </head>
+  <body>
+    <section id="login" class="active-section">
+      <h2>Log in or Register</h2>
+      <section id="login-form">
+        <input type="email" placeholder="Email" id="email-input" required />
+        <input
+          type="password"
+          placeholder="Password"
+          id="password-input"
+          required
+        />
+        <div id="buttons">
+          <button id="login-btn">Log in</button>
+          <button id="register-btn">Register</button>
+          <br />
+          <span id="login-error-information"></span>
+        </div>
+      </section>
+      <section id="register-form" class="inactive-section">
+        <input
+          type="email"
+          placeholder="Email"
+          id="email-register-input"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          id="password-register-input"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          id="confirm-password-input"
+          required
+        />
+        <div id="buttons">
+          <button id="register-submit-btn">Register</button>
+          <button id="cancel-btn">Cancel</button>
+          <br />
+          <span id="register-error-information"></span>
+        </div>
+      </section>
+    </section>
+    <section id="main-application" class="inactive-section">
+      <header>
+        <div class="user">
+          <span id="user-email"></span>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#rate-section" id="rate-link">Rate</a></li>
+            <li><a href="#scores-section" id="scores-link">Scores</a></li>
+            <li><a href="#" id="logout-btn">Log out</a></li>
+            <li><a href="#admin-section" id="admin-link">Admin</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section id="rate-section" class="active-section">
+          <div class="description">
+          <span id="rate-description">Vote for the song you like more, or choose a draw if you can't decide which one to pick!</span>
+        </div>
+          <div class="rate">
+            <div>
+              <div style="height: 40px;"></div>
+              <div class="soundcloud-player">
+                <iframe
+                  id="soundcloud-widget-first"
+                  src=""
+                  frameborder="no"    
+                ></iframe>         
+              </div>
+            <div class="choose-buttons"><button type="button" id="choose-first">CHOOSE FIRST</button>
+            </div>
+          </div>
+            <div class="empty">
+              <div style="height: 280px;"></div>
+              <div class="draw">
+                <button type="button" id="draw">DRAW</button>
+              </div>                          
+            </div>
+          <div>
+            <div style="height: 40px;"></div>
+            <div class="soundcloud-player">
+              <iframe
+                id="soundcloud-widget-second"
+                src=""
+                frameborder="no"    
+              ></iframe>
+          </div>
+            <div class="choose-buttons"><button type="button" id="choose-second">CHOOSE SECOND</button></div>
+          </div>
+            </section>
+        <section id="scores-section" class="inactive-section">
+          <div class="search-container">
+            <input type="text" id="search-input" placeholder="Wyszukaj..." />
+            <button id="search-button"><i class="fa fa-search"></i></button>
+          </div>
+          <div class="scores">
+            <ol class="track-list">
+              <li>Nazwa pierwszego utworu</li>
+              <li>Nazwa drugiego utworu</li>
+              <li>Nazwa trzeciego utworu</li>
+              <li>Nazwa czwartego utworu</li>
+              <li>Nazwa piątego utworu</li>
+              <li>Nazwa pierwszego utworu</li>
+              <li>Nazwa drugiego utworu</li>
+              <li>Nazwa trzeciego utworu</li>
+              <li>Nazwa czwartego utworu</li>
+              <li>Nazwa piątego utworu</li>
+              <li>Nazwa pierwszego utworu</li>
+              <li>Nazwa drugiego utworu</li>
+              <li>Nazwa trzeciego utworu</li>
+              <li>Nazwa czwartego utworu</li>
+              <li>Nazwa piątego utworu</li>
+            </ol>
+          </div>
+        </section>
+        <section id="admin-section" class="inactive-section">
+          <div class="description">
+            <span id="admin-description">Admin panel</span>
+          </div>
+          <div class="admin">
+            <div class="descriptions">
+              <div id="artist-input">
+                <input
+          type="text"
+          placeholder="Type artist name..."
+          id="artist-name"
+          required
+        />
+      </div>
+      <div id="perform-rating-info">
+        <span>To perform a new rating, update or delete rating you need to provide the username 
+          from SoundCloud that is  located in the LINK to their profile in the above text field. 
+          To correctly obtain the username, you should first go to the main page of their SoundCloud profile, 
+          and then extract the username from the link as shown in the examples: 
+          <br> 
+          from "https://soundcloud.com/speed-buda" we extract "speed-buda", 
+          <br>
+          from "https://soundcloud.com/eminemofficial" we extract "eminemofficial".</span>
+              </div>          
+            </div>            
+            <div class="buttons">
+              <div>
+                <button id="perform-new-rating" class="button">Perform new rating</button>
+              </div>                
+              <div>
+                <button class="button">Update rating</button>
+              </div>                    
+              <div>
+                <button class="button">Delete rating</button>
+              </div>                    
+              <div>
+                <button class="button">Push to SoundCloud</button>
+              </div>
+            </div>
+            
+        </section>
+      </main>
+    </section>
+    <script type="module" src="firebasesetup.js"></script>
+    <!-- <script type="module" src="google-login.js"></script> -->
+    <script type="module" src="login.js"></script>
+    <script type="module" src="pagereload.js"></script>
+    <script type="module" src="script.js"></script>
+    <script type="module" src="scplayerfunctionality.js"></script>
+  </body>
+</html>

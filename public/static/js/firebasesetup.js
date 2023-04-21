@@ -53,16 +53,16 @@ export { doc, setDoc, getDoc };
 
 const performNewRating = document.getElementById("perform-new-rating");
 const artistNameInput = document.getElementById("artist-name");
-performNewRating.addEventListener("click", () => {
-	const functions = getFunctions();
-	const getSoundcloudData = httpsCallable(functions, "getSoundcloudData");
-	const artistName = artistNameInput.value;
+// performNewRating.addEventListener("click", () => {
+// 	const functions = getFunctions();
+// 	const getSoundcloudData = httpsCallable(functions, "getSoundcloudData");
+// 	const artistName = artistNameInput.value;
 
-	getSoundcloudData({ soundcloudUsername: artistName })
-		.then((result) => {
-			console.log(result);
-		})
-		.catch((error) => {
-			console.error(error);
-		});
-});
+// 	getSoundcloudData({ soundcloudUsername: artistName })
+// 		.then((result) => {
+// 			console.log(result);
+// 		})
+// 		.catch((error) => {
+// 			console.error(error);
+// 		});
+// });

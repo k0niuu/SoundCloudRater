@@ -8,10 +8,10 @@ module.exports = {
   },
   extends: ["eslint:recommended", "google"],
   rules: {
-    "linebreak-style": ["error", "windows"],
     "no-restricted-globals": ["error", "name", "length"],
     "prefer-arrow-callback": "error",
     "quotes": ["error", "double", {allowTemplateLiterals: true}],
+    "require-jsdoc": "off",
   },
   overrides: [
     {
