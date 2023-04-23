@@ -3,6 +3,9 @@ import loginpanel from "./views/loginpanel.js";
 import rate from "./views/ratepanel.js";
 import scores from "./views/scorespanel.js";
 
+const navigationBar = document.querySelector("header");
+console.log(navigationBar);
+
 export const navigateTo = (url) => {
 	history.pushState(null, null, url);
 	router();
@@ -38,6 +41,9 @@ const router = async (callback) => {
 	const view = new match.route.view();
 	const html = await view.getHtml();
 	document.querySelector("#app").innerHTML = html;
+	if (!(match.route == routes[0])) {
+		navigationBar.style.display = "block";
+	}
 
 	const scriptPath = await view.getScripts();
 	const randomNum = Math.floor(Math.random() * 1000000) + 1;

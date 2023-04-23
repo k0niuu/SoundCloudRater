@@ -13,7 +13,6 @@ import { navigateTo } from "./router.js";
 
 const loginFormSection = document.querySelector("#login");
 const registerFormSection = document.querySelector("#register");
-const adminSection = document.querySelector("#admin-section");
 const adminButton = document.querySelector("#admin-link");
 const emailInput = document.querySelector("#email-input");
 const passwordInput = document.querySelector("#password-input");
@@ -28,7 +27,6 @@ const registerSubmitBtn = document.querySelector("#register-submit-btn");
 const cancelBtn = document.querySelector("#cancel-btn");
 const userEmail = document.querySelector(".user span");
 const navigationBar = document.querySelector("header");
-console.log(navigationBar);
 
 function setActiveSection(sectionToShow, sectionToHide) {
 	sectionToShow.classList.add("active-section");
@@ -39,10 +37,15 @@ function setActiveSection(sectionToShow, sectionToHide) {
 
 registerBtn.addEventListener("click", () => {
 	setActiveSection(registerFormSection, loginFormSection);
+	emailInput.value = "";
+	passwordInput.value = "";
 });
 
 cancelBtn.addEventListener("click", () => {
 	setActiveSection(loginFormSection, registerFormSection);
+	registerEmailInput.value = "";
+	registerPasswordInput.value = "";
+	confirmPasswordInput.value = "";
 });
 
 loginBtn.addEventListener("click", async (e) => {
@@ -103,25 +106,6 @@ registerSubmitBtn.addEventListener("click", async (e) => {
 				"User registration error!";
 		});
 });
-
-// Logout event listener
-// logoutBtn.addEventListener("click", (e) => {
-// 	e.preventDefault();
-
-// 	logout()
-// 		.then(() => {
-// 			// pausePlayers();
-// 			console.log("Successfully logged out");
-// 			document.getElementById("email-input").value = "";
-// 			document.getElementById("password-input").value = "";
-// 			document.getElementById("email-register-input").value = "";
-// 			document.getElementById("password-register-input").value = "";
-// 			document.getElementById("confirm-password-input").value = "";
-// 		})
-// 		.catch((error) => {
-// 			console.error("Error logging out:", error);
-// 		});
-// });
 
 function addUserToDatabase(uid, email) {
 	const userRef = doc(colUsersRef, uid);

@@ -6,6 +6,7 @@ import {
 const performNewRating = document.getElementById("perform-new-rating");
 const performingInfo = document.getElementById("performing-info");
 const artistNameInput = document.getElementById("artist-name");
+
 const timeoutDuration = 5000;
 
 performNewRating.addEventListener("click", performNewRatingHandler);
