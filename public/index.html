@@ -12,26 +12,23 @@
 	</head>
 
 	<body>
-		<header>
+		<header style="display: none">
 			<div class="user">
-				<span id="user-email">gowno@gmail.com</span>
+				<span id="user-email"></span>
 			</div>
 			<nav id="nav">
 				<a href="/rate" class="nav__link" data-link>Rate</a>
 				<a href="/scores" class="nav__link" data-link>Scores</a>
-				<a href="/" class="nav__link" data-link>Logout</a>
-				<a href="/admin" class="nav__link" data-link>Admin</a>
+				<a id="logout-btn" href="/" class="nav__link" data-link>Logout</a>
+				<a id="admin-link" href="/admin" class="nav__link" data-link>Admin</a>
 			</nav>
 		</header>
 		<div id="app"></div>
 		<div id="scripts"></div>
 
-		<!-- <script type="module" src="./static/js/firebasesetup.js"></script> -->
+		<script type="module" src="static/js/firebasesetup.js"></script>
+		<script type="module" src="static/js/logout.js"></script>
 		<!-- <script type="module" src="google-login.js"></script> -->
-		<!-- <script type="module" src="./static/js/login.js"></script>
-	<script type="module" src="./static/js/script.js"></script> -->
-
-		<script type="module" src="./static/js/router.js" defer></script>
-		<!-- <script src="./static/js/viwes/router.js" defer></script> -->
+		<script type="module" src="static/js/router.js" defer></script>
 	</body>
 </html>

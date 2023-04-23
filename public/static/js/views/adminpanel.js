@@ -1,13 +1,12 @@
 import abstract from "./abstract.js";
 
 export default class extends abstract {
-	constructor(params) {
-		super(params);
-		this.setTitle("admin");
+	constructor() {
+		super();
 	}
 
 	async getHtml() {
-		return `
+		const html = `
         <div id="admin-section">
         <div class="description">
             <span id="admin-description">Admin panel</span>
@@ -37,23 +36,39 @@ export default class extends abstract {
                 </div>
             </div>
             <div class="buttons">
+                <div id="performing-info" class="action-status">
+					<span></span>
+				</div>
                 <div>
                     <button id="perform-new-rating" class="button">
                         Perform new rating
                     </button>
                 </div>
+                <div id="updating-info" class="action-status">
+					<span></span>
+				</div>
                 <div>
-                    <button class="button">Update rating</button>
+                    <button id="update-rating" class="button">Update rating</button>
+                </div>
+                <div id="deletion-info" class="action-status">
+					<span></span>
+				</div>
+                <div>
+                    <button id="delete-rating" class="button">Delete rating</button>
                 </div>
                 <div>
-                    <button class="button">Delete rating</button>
-                </div>
-                <div>
-                    <button class="button">Push to SoundCloud</button>
+                    <button id="push-to-soundcloud" class="button">Push to SoundCloud</button>
                 </div>
             </div>
         </div>
     </div>
         `;
+
+		return html;
+	}
+
+	async getScripts() {
+		const scriptPath = "static/js/admin.js?t=1";
+		return scriptPath;
 	}
 }

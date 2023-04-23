@@ -1,13 +1,12 @@
 import abstract from "./abstract.js";
 
 export default class extends abstract {
-	constructor(params) {
-		super(params);
-		this.setTitle("score");
+	constructor() {
+		super();
 	}
 
 	async getHtml() {
-		return `
+		const html = `
         <div id="scores-section">
         <div class="search-container">
           <input type="text" id="search-input" placeholder="Wyszukaj..." />
@@ -34,5 +33,11 @@ export default class extends abstract {
         </div>
     </div>
         `;
+		return html;
+	}
+
+	async getScripts() {
+		const scriptPath = "static/js/scores.js?t=1";
+		return scriptPath;
 	}
 }

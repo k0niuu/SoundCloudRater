@@ -4,14 +4,22 @@
 	height: 300px;
 	background-color: #555;
 }
+#register {
+	text-align: center;
+	width: 300px;
+	height: 300px;
+	background-color: #555;
+}
 
 #margin {
-	height: 20px;
+	height: 30px;
 }
 
 h2 {
 	color: white;
 	font-size: 2rem;
+	margin: 0;
+	margin-bottom: 20px;
 }
 
 span#login-error-information,
@@ -23,9 +31,9 @@ span#register-error-information {
 
 #login input[type="email"],
 #login input[type="password"],
-#register-form input[type="email"],
-#register-form input[type="password"],
-#register-form input[type="password"]:last-of-type {
+#register input[type="email"],
+#register input[type="password"],
+#register input[type="password"]:last-of-type {
 	margin-bottom: 10px;
 	padding: 10px;
 	border-radius: 5px;
@@ -34,12 +42,12 @@ span#register-error-information {
 }
 
 #login #buttons,
-#register-form #buttons {
+#register #buttons {
 	margin-top: 10px;
 }
 
 #login #buttons button,
-#register-form #buttons button {
+#register #buttons button {
 	margin: 0 5px;
 	padding: 5px 10px;
 	border-radius: 5px;
@@ -47,20 +55,22 @@ span#register-error-information {
 	cursor: pointer;
 }
 
-#login #buttons button:first-of-type {
-	background-color: orange;
+#login #buttons button:first-of-type,
+#register #buttons button:first-of-type {
+	background-color: rgba(204, 68, 0, 0.8);
 	color: white;
 	font-size: 1rem;
 	font-weight: bold;
 	border: none;
 }
 
-#login #buttons button:first-of-type:hover {
-	box-shadow: 0px 0px 10px orange;
+#login #buttons button:first-of-type:hover,
+#register #buttons button:first-of-type {
+	box-shadow: 0px 0px 10px rgba(204, 68, 0, 0.8);
 }
 
 #login #buttons button:last-of-type,
-#register-form #buttons button:last-of-type {
+#register #buttons button:last-of-type {
 	background-color: #f1f1f1;
 	color: #555;
 	font-size: 1rem;
@@ -69,7 +79,7 @@ span#register-error-information {
 }
 
 #login #buttons button:last-of-type:hover,
-#register-form #buttons button:last-of-type:hover {
+#register #buttons button:last-of-type:hover {
 	box-shadow: 0px 0px 10px white;
 }
 

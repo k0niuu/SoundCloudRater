@@ -21,12 +21,13 @@ const firebaseConfig = {
   measurementId: "G-E4EZBJ85K0",
 };
 
+let soundcloudUsername;
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 admin.initializeApp();
 
 exports.getSoundcloudData = functions.https.onCall(async (data) => {
-  const soundcloudUsername = data.soundcloudUsername;
+  soundcloudUsername = data.soundcloudUsername;
   const url = `https://soundcloud-scraper.p.rapidapi.com/v1/user/tracks?user=https%3A%2F%2Fsoundcloud.com%2F${soundcloudUsername}&limit=100`;
   const options = {
     method: "GET",
@@ -71,7 +72,7 @@ exports.getSoundcloudData = functions.https.onCall(async (data) => {
 });
 
 async function getSongsArrayFromDb() {
-  const docRef = doc(db, "scArtists", "speed-buda");
+  const docRef = doc(db, "scArtists", soundcloudUsername);
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
     // console.log("document data:", docSnap.data());
@@ -140,7 +141,7 @@ async function distributePairsByUsers() {
     console.log(userIndex);
     console.log(userPairs);
     console.log(userPairs.length);
-    setDoc(doc.ref, {pairs: userPairs}, {merge: true});
+    setDoc(doc.ref, {[soundcloudUsername]: userPairs}, {merge: true});
     userIndex++;
   });
 

@@ -1,25 +1,33 @@
-<div id="scores-section">
-	<div class="search-container">
-		<input type="text" id="search-input" placeholder="Wyszukaj..." />
-		<button id="search-button"><i class="fa fa-search"></i></button>
-	</div>
-	<div class="scores">
-		<ol class="track-list">
-			<li>Nazwa pierwszego utworu</li>
-			<li>Nazwa drugiego utworu</li>
-			<li>Nazwa trzeciego utworu</li>
-			<li>Nazwa czwartego utworu</li>
-			<li>Nazwa piątego utworu</li>
-			<li>Nazwa pierwszego utworu</li>
-			<li>Nazwa drugiego utworu</li>
-			<li>Nazwa trzeciego utworu</li>
-			<li>Nazwa czwartego utworu</li>
-			<li>Nazwa piątego utworu</li>
-			<li>Nazwa pierwszego utworu</li>
-			<li>Nazwa drugiego utworu</li>
-			<li>Nazwa trzeciego utworu</li>
-			<li>Nazwa czwartego utworu</li>
-			<li>Nazwa piątego utworu</li>
-		</ol>
-	</div>
-</div>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Sound Cloud Rater</title>
+		<link rel="stylesheet" href="public/static/css/style.css" />
+		<link rel="stylesheet" href="public/static/css/all.min.css" />
+		<link rel="stylesheet" href="public/static/css/loginpanel.css" />
+		<link rel="stylesheet" href="public/static/css/SCstyles.css" />
+		<link rel="shortsut icon" href="data:." />
+		<script src="https://w.soundcloud.com/player/api.js"></script>
+	</head>
+
+	<body>
+		<header id="header">
+			<div class="user">
+				<span id="user-email">gowno@gmail.com</span>
+			</div>
+			<nav id="nav">
+				<a href="/rate" class="nav__link" data-link>Rate</a>
+				<a href="/scores" class="nav__link" data-link>Scores</a>
+				<a href="/" class="nav__link" data-link>Logout</a>
+				<a id="admin-link" href="/admin" class="nav__link" data-link>Admin</a>
+			</nav>
+		</header>
+		<div id="app"></div>
+		<div id="scripts"></div>
+
+		<!-- <script type="module" src="static/js/firebasesetup.js"></script> -->
+		<!-- <script type="module" src="google-login.js"></script> -->
+		<!-- <script type="module" src="static/js/router.js" defer></script> -->
+	</body>
+</html>

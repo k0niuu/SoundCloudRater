@@ -1,14 +1,14 @@
-import admin from "./views/admin.js";
+import admin from "./views/adminpanel.js";
 import loginpanel from "./views/loginpanel.js";
-import rate from "./views/rate.js";
-import scores from "./views/scores.js";
+import rate from "./views/ratepanel.js";
+import scores from "./views/scorespanel.js";
 
-const navgateTo = (url) => {
+export const navigateTo = (url) => {
 	history.pushState(null, null, url);
 	router();
 };
 
-const router = async () => {
+const router = async (callback) => {
 	const routes = [
 		{ path: "/", view: loginpanel },
 		{ path: "/rate", view: rate },
@@ -37,12 +37,27 @@ const router = async () => {
 
 	const view = new match.route.view();
 	const html = await view.getHtml();
-	const scripts = await view.getScripts();
-
 	document.querySelector("#app").innerHTML = html;
-	console.log(html);
-	document.querySelector("#scripts").innerHTML = scripts;
-	console.log(scripts);
+
+	const scriptPath = await view.getScripts();
+	const randomNum = Math.floor(Math.random() * 1000000) + 1;
+
+	const updatedPath = scriptPath.slice(0, -1) + randomNum;
+
+	const scriptsContainer = document.querySelector("#scripts");
+	const existingScript = scriptsContainer.querySelector(
+		`script[src='${updatedPath}']`
+	);
+	if (existingScript) {
+		// jeśli skrypt jest już załadowany, usuń go
+		existingScript.remove();
+	}
+
+	const script = document.createElement("script");
+	script.type = "module";
+	script.src = updatedPath;
+	script.onload = callback;
+	scriptsContainer.appendChild(script);
 };
 
 window.addEventListener("popstate", router);
@@ -51,9 +66,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	document.body.addEventListener("click", (e) => {
 		if (e.target.matches("[data-link")) {
 			e.preventDefault();
-			navgateTo(e.target.href);
+			navigateTo(e.target.href);
 		}
 	});
 
-	router();
+	router(() => {
+		console.log("skrypt został wczytany");
+	});
 });

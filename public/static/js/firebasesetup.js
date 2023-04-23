@@ -8,16 +8,10 @@ import {
 import {
 	getFirestore,
 	collection,
-	onSnapshot,
 	getDoc,
-	addDoc,
 	setDoc,
 	doc,
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
-import {
-	getFunctions,
-	httpsCallable,
-} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-functions.js";
 
 // Konfiguracja Firebase
 const firebaseConfig = {
@@ -50,19 +44,3 @@ export const auth = getAuth();
 export const db = getFirestore();
 export const colUsersRef = collection(db, "users");
 export { doc, setDoc, getDoc };
-
-const performNewRating = document.getElementById("perform-new-rating");
-const artistNameInput = document.getElementById("artist-name");
-// performNewRating.addEventListener("click", () => {
-// 	const functions = getFunctions();
-// 	const getSoundcloudData = httpsCallable(functions, "getSoundcloudData");
-// 	const artistName = artistNameInput.value;
-
-// 	getSoundcloudData({ soundcloudUsername: artistName })
-// 		.then((result) => {
-// 			console.log(result);
-// 		})
-// 		.catch((error) => {
-// 			console.error(error);
-// 		});
-// });

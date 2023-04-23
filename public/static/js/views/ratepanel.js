@@ -1,9 +1,8 @@
 import abstract from "./abstract.js";
 
 export default class extends abstract {
-	constructor(params) {
-		super(params);
-		this.setTitle("rate");
+	constructor() {
+		super();
 	}
 
 	async getHtml() {
@@ -52,7 +51,7 @@ export default class extends abstract {
 	}
 
 	async getScripts() {
-		const scripts = `<script type="module" src="./static/js/scplayerfunctionality.js"></script>`;
-		return scripts;
+		const scriptPath = "static/js/rate.js?t=1";
+		return scriptPath;
 	}
 }
