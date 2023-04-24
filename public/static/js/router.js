@@ -4,7 +4,8 @@ import rate from "./views/ratepanel.js";
 import scores from "./views/scorespanel.js";
 
 const navigationBar = document.querySelector("header");
-console.log(navigationBar);
+// const userEmail = document.querySelector(".user span");
+// const adminButton = document.querySelector("#admin-link");
 
 export const navigateTo = (url) => {
 	history.pushState(null, null, url);
@@ -17,7 +18,6 @@ const router = async (callback) => {
 		{ path: "/rate", view: rate },
 		{ path: "/scores", view: scores },
 		{ path: "/admin", view: admin },
-		// { path: "/", view: () => console.log("viewing dashboard") },
 	];
 
 	const potentialMatches = routes.map((route) => {
@@ -47,7 +47,6 @@ const router = async (callback) => {
 
 	const scriptPath = await view.getScripts();
 	const randomNum = Math.floor(Math.random() * 1000000) + 1;
-
 	const updatedPath = scriptPath.slice(0, -1) + randomNum;
 
 	const scriptsContainer = document.querySelector("#scripts");
@@ -55,7 +54,6 @@ const router = async (callback) => {
 		`script[src='${updatedPath}']`
 	);
 	if (existingScript) {
-		// jeśli skrypt jest już załadowany, usuń go
 		existingScript.remove();
 	}
 
@@ -76,7 +74,5 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 
-	router(() => {
-		console.log("skrypt został wczytany");
-	});
+	router();
 });

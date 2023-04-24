@@ -4,6 +4,7 @@ import {
 	signInWithEmailAndPassword,
 	createUserWithEmailAndPassword,
 	signOut,
+	onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
 import {
 	getFirestore,
@@ -27,7 +28,6 @@ const firebaseConfig = {
 // Inicjalizacja Firebase
 const app = initializeApp(firebaseConfig);
 
-// Eksportowanie funkcji logowania, rejestrowania i wylogowania
 export function login(email, password) {
 	return signInWithEmailAndPassword(auth, email, password);
 }
@@ -43,4 +43,4 @@ export function logout() {
 export const auth = getAuth();
 export const db = getFirestore();
 export const colUsersRef = collection(db, "users");
-export { doc, setDoc, getDoc };
+export { doc, setDoc, getDoc, onAuthStateChanged };

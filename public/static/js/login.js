@@ -1,7 +1,6 @@
 import {
 	colUsersRef,
 	login,
-	logout,
 	register,
 	doc,
 	setDoc,
@@ -27,6 +26,8 @@ const registerSubmitBtn = document.querySelector("#register-submit-btn");
 const cancelBtn = document.querySelector("#cancel-btn");
 const userEmail = document.querySelector(".user span");
 const navigationBar = document.querySelector("header");
+const loginError = document.getElementById("login-error-information");
+const registerError = document.getElementById("register-error-information");
 
 function setActiveSection(sectionToShow, sectionToHide) {
 	sectionToShow.classList.add("active-section");
@@ -39,6 +40,7 @@ registerBtn.addEventListener("click", () => {
 	setActiveSection(registerFormSection, loginFormSection);
 	emailInput.value = "";
 	passwordInput.value = "";
+	loginError.textContent = "";
 });
 
 cancelBtn.addEventListener("click", () => {
@@ -46,6 +48,7 @@ cancelBtn.addEventListener("click", () => {
 	registerEmailInput.value = "";
 	registerPasswordInput.value = "";
 	confirmPasswordInput.value = "";
+	registerError.textContent = "";
 });
 
 loginBtn.addEventListener("click", async (e) => {
@@ -56,11 +59,11 @@ loginBtn.addEventListener("click", async (e) => {
 
 	login(email, password)
 		.then(async (cred) => {
-			userEmail.textContent = email;
-			console.log(
-				`Successfully logged in as: ${userEmail.textContent}`,
-				cred.user
-			);
+			// userEmail.textContent = email;
+			// console.log(
+			// 	`Successfully logged in as: ${userEmail.textContent}`,
+			// 	cred.user
+			// );
 			console.log(cred.user.uid);
 			await CheckIfAdmin(cred.user.uid);
 			navigationBar.style.display = "block";
@@ -68,8 +71,7 @@ loginBtn.addEventListener("click", async (e) => {
 		})
 		.catch((error) => {
 			console.error("Error logging in:", error);
-			document.getElementById("login-error-information").textContent =
-				"Invalid email or password!";
+			loginError.textContent = "Invalid email or password!";
 		});
 });
 
@@ -82,18 +84,17 @@ registerSubmitBtn.addEventListener("click", async (e) => {
 
 	if (password !== confirmPassword) {
 		console.error("Passwords do not match!");
-		document.getElementById("register-error-information").textContent =
-			"Passwords do not match!";
+		registerError.textContent = "Passwords do not match!";
 		return;
 	}
 
 	register(email, password)
 		.then(async (cred) => {
-			userEmail.textContent = email;
-			console.log(
-				`Successfully registered and logged in as: ${userEmail.textContent}`,
-				cred.user
-			);
+			// userEmail.textContent = email;
+			// console.log(
+			// 	`Successfully registered and logged in as: ${userEmail.textContent}`,
+			// 	cred.user
+			// );
 			console.log(cred.user.uid);
 			addUserToDatabase(cred.user.uid, email);
 			await CheckIfAdmin(cred.user.uid);
@@ -102,8 +103,7 @@ registerSubmitBtn.addEventListener("click", async (e) => {
 		})
 		.catch((error) => {
 			console.error("Error logging in:", error);
-			document.getElementById("register-error-information").textContent =
-				"User registration error!";
+			registerError.textContent = "User registration error!";
 		});
 });
 
