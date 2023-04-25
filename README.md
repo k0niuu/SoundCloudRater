@@ -44,3 +44,4 @@ This section is used for rating generation, which follows as illustrated below, 
  * Completion of the Final Scores generation functionality.
  * Rewriting it to TypeScript & React!
  * Distribution of songs by a given artist among users that should be described by them on [Genius](https://genius.com/).
+ * Expanding the rating of songs so that they are assessed through the prism of several categories, and not as before, by choosing the one we like more.
